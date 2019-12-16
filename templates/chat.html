@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+Chat
+{% endblock %}
+{% block main %}
+<p class="display-4 mb-3">{{ channel_data['channel_name'] }}</p>
+<ol id="messages">
+    {% for message in channel_data['messages'] %}
+    <li class="message-container">
+        <p class="time-left">{{ message[0]['displayname'] }}</p>
+        <p>{{ message[0]['message'] }}</p>
+    </li>
+    {% endfor %}
+</ol>
+<div class="row">
+        <textarea class="form-control z-depth-1" name="message" placeholder="Message.."
+                  id="message"></textarea>
+</div>
+<div class="row">
+    <button class="link btn btn-primary btn-sm btn-block" id="send-btn" type="submit">Send</button>
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='chat.js') }}"></script>
+{% endblock %}

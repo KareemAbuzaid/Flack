@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+Sign In
+{% endblock %}
+
+{% block main %}
+<form id="signin" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="displayname" placeholder="Display Name"
+               type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Sign In</button>
+</form>
+<script type="text/javascript" src="{{ url_for('static', filename='signin.js') }}"></script>
+{% endblock %}
